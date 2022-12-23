@@ -6,11 +6,13 @@
 namespace LinearAlgebra {
 	std::vector<std::vector<double>> build(int const& rows, int const& cols);
 
+	std::vector<std::vector<double>> identity(int const& rows, int const& cols);
+
+	std::vector<std::vector<double>> scalar(double const& c, std::vector<std::vector<double>> a);
+
 	std::vector<std::vector<double>> add(std::vector<std::vector<double>> a, std::vector<std::vector<double>> const& b);
 
 	std::vector<std::vector<double>> subtract(std::vector<std::vector<double>> a, std::vector<std::vector<double>> const& b);
-
-	std::vector<std::vector<double>> scalar(double const& c, std::vector<std::vector<double>> a);
 
 	std::vector<std::vector<double>> multiply(std::vector<std::vector<double>> const& a, std::vector<std::vector<double>> const& b);
 
