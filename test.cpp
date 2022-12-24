@@ -7,10 +7,11 @@ using namespace std;
 
 int main() {
 	const vector<vector<double>> a = {{1, 2, 3},
-									  {4, 5, 6}};
-	const vector<vector<double>> b = LinearAlgebra::transpose(a);
+									  {4, 4, 6},
+									  {7, 8, 9}};
+	const vector<vector<double>> b = LinearAlgebra::inverse(a);
 	const vector<vector<double>> c = LinearAlgebra::multiply(a, b);
-	const vector<vector<double>> d = LinearAlgebra::multiply(b, a);
+	const vector<vector<double>> d = LinearAlgebra::column(0, a);
 
 	for(const vector<double> x : a) {
 		for(const double y : x)
