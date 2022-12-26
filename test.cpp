@@ -5,45 +5,63 @@
 
 using namespace std;
 
+vector<vector<double>> leastSquares(vector<vector<double>> data);
+
 int main() {
-	const vector<vector<double>> a = {{1, 2, 3},
-									  {4, 4, 6},
-									  {7, 8, 9}};
-	const vector<vector<double>> b = LinearAlgebra::inverse(a);
-	const vector<vector<double>> c = LinearAlgebra::multiply(a, b);
-	const vector<vector<double>> d = LinearAlgebra::column(0, a);
+	vector<vector<double>> data = {{0, 2},
+								   {1, 4},
+								   {2, 6}};
+	vector<vector<double>> a;
+	vector<vector<double>> b;
 
-	for(const vector<double> x : a) {
-		for(const double y : x)
-			cout << y << " ";
-
-		cout << endl;
+	for(vector<double> x : data) {
+		a.push_back({1, x[0]});
+		b.push_back({x[1]});
 	}
-	cout << endl;
+	vector<vector<double>> c = LinearAlgebra::multiply(LinearAlgebra::transpose(a), a);
+	vector<vector<double>> d = LinearAlgebra::inverse(c);
+	vector<vector<double>> e = LinearAlgebra::multiply(c, d);
 
-	for(const vector<double> x : b) {
-		for(const double y : x)
-			cout << y << " ";
-
+	for(vector<double> x : a) {
 		cout << endl;
-	}
-	cout << endl;
 
-	for(const vector<double> x : c) {
-		for(const double y : x)
+		for(double y : x)
 			cout << y << " ";
-
-		cout << endl;
 	}
-	cout << endl;
+	for(vector<double> x : b) {
+		cout << endl;
 
-	for(const vector<double> x : d) {
-		for(const double y : x)
+		for(double y : x)
 			cout << y << " ";
-
-		cout << endl;
 	}
-	cout << endl;
+	for(vector<double> x : c) {
+		cout << endl;
 
+		for(double y : x)
+			cout << y << " ";
+	}
+	for(vector<double> x : d) {
+		cout << endl;
+
+		for(double y : x)
+			cout << y << " ";
+	}
+	for(vector<double> x : e) {
+		cout << endl;
+
+		for(double y : x)
+			cout << y << " ";
+	}
 	return 0;
+}
+vector<vector<double>> leastSquares(vector<vector<double>> data) {
+	vector<vector<double>> a;
+	vector<vector<double>> b;
+
+	for(vector<double> x : data) {
+		a.push_back({1, x[0]});
+		b.push_back({x[1]});
+	}
+	return LinearAlgebra::multiply(LinearAlgebra::inverse(LinearAlgebra::multiply(LinearAlgebra::transpose(a), a)),
+								   LinearAlgebra::multiply(LinearAlgebra::transpose(a), b));
 }

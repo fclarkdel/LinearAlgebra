@@ -9,13 +9,13 @@ add_executable(
         test.cpp
         Sources/LinearAlgebra.cpp
         Headers/LinearAlgebra.h
-)
+        Exceptions/InvalidDimensionsException.cpp Exceptions/InvalidDimensionsException.h)
 add_library(
         LinearAlgebra
         STATIC
         Sources/LinearAlgebra.cpp
         Headers/LinearAlgebra.h
-)
+        Exceptions/InvalidDimensionsException.cpp Exceptions/InvalidDimensionsException.h)
 target_include_directories(
         Test
         PRIVATE
