@@ -2,7 +2,6 @@
 #define LINEARALGEBRA_INVALIDDIMENSIONSEXCEPTION_H
 
 #include <exception>
-#include <iostream>
 #include <string>
 
 class InvalidDimensionsException : public std::exception {
@@ -10,7 +9,7 @@ private:
 	std::string message {};
 
 public:
-	InvalidDimensionsException(std::string_view message);
+	InvalidDimensionsException(std::string_view message = "Invalid dimensions.");
 
 	const char* what() const noexcept override;
 };

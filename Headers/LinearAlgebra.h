@@ -3,6 +3,9 @@
 
 #include <vector>
 
+#include "Exceptions/InvalidDimensionsException.h"
+#include "Exceptions/SingularMatrixException.h"
+
 namespace LinearAlgebra {
 	std::vector<std::vector<double>> build(unsigned const& rows, unsigned int const& cols);
 
@@ -21,6 +24,8 @@ namespace LinearAlgebra {
 	std::vector<std::vector<double>> multiply(std::vector<std::vector<double>> const& a, std::vector<std::vector<double>> const& b);
 
 	std::vector<std::vector<double>> transpose(std::vector<std::vector<double>> const& a);
+
+	double determinant(std::vector<std::vector<double>> a);
 
 	std::vector<std::vector<double>> inverse(std::vector<std::vector<double>> a);
 }
