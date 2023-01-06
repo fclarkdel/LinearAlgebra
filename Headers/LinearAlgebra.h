@@ -7,13 +7,13 @@
 #include "Exceptions/SingularMatrixException.h"
 
 namespace LinearAlgebra {
-	std::vector<std::vector<double>> build(unsigned const& rows, unsigned int const& cols);
+	std::vector<std::vector<double>> build(int const& rows, int const& cols);
 
-	std::vector<std::vector<double>> identity(unsigned int const& rows, unsigned int const& cols);
+	std::vector<std::vector<double>> identity(int const& rows, int const& cols);
 
-	std::vector<std::vector<double>> row(unsigned int const& row, std::vector<std::vector<double>> const& a);
+	std::vector<std::vector<double>> row(int const& row, std::vector<std::vector<double>> const& a);
 
-	std::vector<std::vector<double>> column(unsigned int const& column, std::vector<std::vector<double>> const& a);
+	std::vector<std::vector<double>> column(int const& column, std::vector<std::vector<double>> const& a);
 
 	std::vector<std::vector<double>> scalar(double const& c, std::vector<std::vector<double>> a);
 

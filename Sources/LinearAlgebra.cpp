@@ -1,33 +1,39 @@
 #include "LinearAlgebra.h"
 
 namespace LinearAlgebra {
-	std::vector<std::vector<double>> build(unsigned int const& rows, unsigned int const& cols) {
+	std::vector<std::vector<double>> build(int const& rows, int const& columns) {
+		if(rows < 0 || columns < 0)
+			throw InvalidDimensionsException();
+
 		std::vector<std::vector<double>> a {};
 
 		for(int i {0}; i < rows; ++i) {
 			a.emplace_back();
 
-			for(int j {0}; j < cols; ++j)
+			for(int j {0}; j < columns; ++j)
 				a[i].push_back(0);
 		}
 		return a;
 	}
-	std::vector<std::vector<double>> identity(unsigned int const& rows, unsigned int const& cols) {
-		std::vector<std::vector<double>> a {build(rows, cols)};
+	std::vector<std::vector<double>> identity(int const& rows, int const& columns) {
+		if(rows < 0 || columns < 0)
+			throw InvalidDimensionsException();
+
+		std::vector<std::vector<double>> a {build(rows, columns)};
 
 		for(int i {0}; i < a.size(); ++i)
 			a[i][i] = 1;
 
 		return a;
 	}
-	std::vector<std::vector<double>> row(unsigned int const& row, std::vector<std::vector<double>> const& a) {
-		if(row >= a.size())
+	std::vector<std::vector<double>> row(int const& row, std::vector<std::vector<double>> const& a) {
+		if(row < 0 || row >= a.size())
 			throw InvalidDimensionsException();
 
 		return std::vector<std::vector<double>> {a[row]};
 	}
-	std::vector<std::vector<double>> column(unsigned int const& column, std::vector<std::vector<double>> const& a) {
-		if(column >= a[0].size())
+	std::vector<std::vector<double>> column(int const& column, std::vector<std::vector<double>> const& a) {
+		if(column < 0 || column >= a[0].size())
 			throw InvalidDimensionsException();
 
 		return transpose(std::vector<std::vector<double>> {transpose(a)[column]});
@@ -59,7 +65,7 @@ namespace LinearAlgebra {
 		if(a[0].size() != b.size())
 			throw InvalidDimensionsException();
 
-		std::vector<std::vector<double>> c {build(a.size(), b[0].size())};
+		std::vector<std::vector<double>> c {build(static_cast<int>(a.size()), static_cast<int>(b[0].size()))};
 
 		for(int i {0}; i < a.size(); ++i) {
 			for(int j {0}; j < b[0].size(); ++j) {
@@ -70,7 +76,7 @@ namespace LinearAlgebra {
 		return c;
 	}
 	std::vector<std::vector<double>> transpose(std::vector<std::vector<double>> const& a) {
-		std::vector<std::vector<double>> b {build(a[0].size(), a.size())};
+		std::vector<std::vector<double>> b {build(static_cast<int>(a[0].size()), static_cast<int>(a.size()))};
 
 		for(int i {0}; i < a.size(); ++i) {
 			for(int j {0}; j < a[0].size(); ++j)
@@ -132,7 +138,7 @@ namespace LinearAlgebra {
 		if(determinant(a) == 0)
 			throw SingularMatrixException();
 
-		std::vector<std::vector<double>> b {identity(a.size(), a[0].size())};
+		std::vector<std::vector<double>> b {identity(static_cast<int>(a.size()), static_cast<int>(a[0].size()))};
 
 		// Put the matrix into upper triangular form.
 		for(int i {0}; i < a.size() - 1; ++i) {
