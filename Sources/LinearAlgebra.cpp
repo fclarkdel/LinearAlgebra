@@ -95,19 +95,22 @@ namespace LinearAlgebra {
 			// Handle zero pivot.
 			if(a[i][i] == 0) {
 				// Find first row with non-zero value in pivot column.
-				for(int j {i + 1}; j < a.size() && a[j][i] == 0; ++j)
-					if(a[j][i] != 0) {
-						// Swap rows.
-						std::vector<double> temp {a[i]};
+				int j {i + 1};
 
-						a[i] = a[j];
-						a[j] = temp;
+				for(; j < a.size() && a[j][i] == 0; ++j);
 
-						determinant *= -1;
-					} else {
-						// Zero column present in matrix.
-						continue;
-					}
+				if(a[j][i] != 0) {
+					// Swap rows.
+					std::vector<double> temp {a[i]};
+
+					a[i] = a[j];
+					a[j] = temp;
+
+					determinant *= -1;
+				} else {
+					// Zero-pivot present in matrix.
+					return 0;
+				}
 			}
 			// Subtract multiple of i_th row from j_th row.
 			for(int j {i + 1}; j < a.size(); ++j) {
@@ -118,6 +121,9 @@ namespace LinearAlgebra {
 		}
 		// Work back up.
 		for(int i {static_cast<int>(a.size() - 1)}; i >= 0; --i) {
+			if(a[i][i] == 0)
+				return 0;
+
 			// Subtract multiple of i_th row from j_th row.
 			for(int j {i - 1}; j >= 0; --j) {
 				double const l {a[j][i] / a[i][i]};
@@ -135,8 +141,8 @@ namespace LinearAlgebra {
 		return determinant;
 	}
 	std::vector<std::vector<double>> inverse(std::vector<std::vector<double>> a) {
-		if(determinant(a) == 0)
-			throw SingularMatrixException();
+		if(a.size() != a[0].size())
+			throw InvalidDimensionsException();
 
 		std::vector<std::vector<double>> b {identity(static_cast<int>(a.size()), static_cast<int>(a[0].size()))};
 
@@ -145,22 +151,25 @@ namespace LinearAlgebra {
 			// Handle zero pivot.
 			if(a[i][i] == 0) {
 				// Find first row with non-zero value in pivot column.
-				for(int j {i + 1}; j < a.size() && a[j][i] == 0; ++j)
-					if(a[j][i] != 0) {
-						// Swap rows.
-						std::vector<double> temp {a[i]};
+				int j {i + 1};
 
-						a[i] = a[j];
-						a[j] = temp;
+				for(; j < a.size() && a[j][i] == 0; ++j);
 
-						temp = b[i];
+				if(a[j][i] != 0) {
+					// Swap rows.
+					std::vector<double> temp {a[i]};
 
-						b[i] = b[j];
-						b[j] = temp;
-					} else {
-						// Zero column present in matrix.
-						continue;
-					}
+					a[i] = a[j];
+					a[j] = temp;
+
+					temp = b[i];
+
+					b[i] = b[j];
+					b[j] = temp;
+				} else {
+					// Zero-pivot present in matrix.
+					throw SingularMatrixException();
+				}
 			}
 			// Subtract multiple of i_th row from j_th row.
 			for(int j {i + 1}; j < a.size(); ++j) {
@@ -172,6 +181,9 @@ namespace LinearAlgebra {
 		}
 		// Work back up.
 		for(int i {static_cast<int>(a.size() - 1)}; i >= 0; --i) {
+			if(a[i][i] == 0)
+				throw SingularMatrixException();
+
 			// Divide i_th row by i_th pivot.
 			b[i] = scalar(1 / a[i][i], row(i, b))[0];
 			a[i] = scalar(1 / a[i][i], row(i, a))[0];

@@ -8,10 +8,11 @@ class ScalarTest : public ::testing::Test {
 protected:
 	double const c {2};
 	double const d {3};
+
 	std::vector<std::vector<double>> const u {{1, 2, 3},
-										{4, 5, 6}};
+											  {4, 5, 6}};
 	std::vector<std::vector<double>> const v {{7, 8, 9},
-										{10, 11, 12}};
+											  {10, 11, 12}};
 };
 TEST_F(ScalarTest, Associativity) {
 	// (c * d) * u = c * (d * u)
@@ -69,7 +70,7 @@ TEST_F(ScalarTest, InverseElement) {
 TEST_F(ScalarTest, AbsorbingElement) {
 	// 0 * u = 0
 	std::vector<std::vector<double>> l {LinearAlgebra::scalar(0, u)};
-	std::vector<std::vector<double>> r {LinearAlgebra::build(u.size(), u[0].size())};
+	std::vector<std::vector<double>> r {LinearAlgebra::build(static_cast<int>(u.size()), static_cast<int>(u[0].size()))};
 
 	for(int i {0}; i < l.size(); ++i) {
 		for(int j {0}; j < l[0].size(); ++j) {
@@ -77,8 +78,8 @@ TEST_F(ScalarTest, AbsorbingElement) {
 		}
 	}
 	// c * 0 = 0
-	l = LinearAlgebra::scalar(c, LinearAlgebra::build(u.size(), u[0].size()));
-	r = LinearAlgebra::build(u.size(), u[0].size());
+	l = LinearAlgebra::scalar(c, LinearAlgebra::build(static_cast<int>(u.size()), static_cast<int>(u[0].size())));
+	r = LinearAlgebra::build(static_cast<int>(u.size()), static_cast<int>(u[0].size()));
 
 	for(int i {0}; i < l.size(); ++i) {
 		for(int j {0}; j < l[0].size(); ++j) {

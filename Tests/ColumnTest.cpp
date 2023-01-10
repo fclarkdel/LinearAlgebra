@@ -12,7 +12,7 @@ protected:
 };
 TEST_F(ColumnTest, Column) {
 	for(int j {0}; j < u[0].size(); ++j) {
-		std::vector<std::vector<double>> v {LinearAlgebra::column(j, u)};
+		std::vector<std::vector<double>> const& v {LinearAlgebra::column(j, u)};
 
 		for(int i {0}; i < u.size(); ++i) {
 			EXPECT_EQ(u[i][j], v[i][0]);
@@ -21,7 +21,7 @@ TEST_F(ColumnTest, Column) {
 }
 TEST_F(ColumnTest, InvalidDimensionsException) {
 	EXPECT_THROW(
-		std::vector<std::vector<double>> v {LinearAlgebra::column(-1, u)},
+		std::vector<std::vector<double>> const& v {LinearAlgebra::column(-1, u)},
 		InvalidDimensionsException
 	);
 }
