@@ -1,5 +1,0 @@
-if(EXISTS "C:/Users/ferna/CLionProjects/LinearAlgebra/cmake-build-debug/Tests/LinearAlgebraTests[1]_tests.cmake")
-  include("C:/Users/ferna/CLionProjects/LinearAlgebra/cmake-build-debug/Tests/LinearAlgebraTests[1]_tests.cmake")
-else()
-  add_test(LinearAlgebraTests_NOT_BUILT LinearAlgebraTests_NOT_BUILT)
-endif()
