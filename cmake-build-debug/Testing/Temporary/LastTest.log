@@ -1,0 +1,147 @@
+Start testing: Jan 26 22:44 Central Standard Time
+----------------------------------------------------------
+46/46 Testing: LinearAlgebraTests
+46/46 Test: LinearAlgebraTests
+Command: "C:/Users/ferna/CLionProjects/LinearAlgebra/cmake-build-debug/Tests/LinearAlgebraTests.exe"
+Directory: C:/Users/ferna/CLionProjects/LinearAlgebra/cmake-build-debug/Tests
+"LinearAlgebraTests" start time: Jan 26 22:44 Central Standard Time
+Output:
+----------------------------------------------------------
+Running main() from C:/Users/ferna/CLionProjects/LinearAlgebra/cmake-build-debug/_deps/googletest-src/googletest/src/gtest_main.cc
+[==========] Running 45 tests from 11 test suites.
+[----------] Global test environment set-up.
+[----------] 7 tests from InverseTest
+[ RUN      ] InverseTest.Involution
+[       OK ] InverseTest.Involution (0 ms)
+[ RUN      ] InverseTest.Scalar
+[       OK ] InverseTest.Scalar (0 ms)
+[ RUN      ] InverseTest.Multiply
+[       OK ] InverseTest.Multiply (0 ms)
+[ RUN      ] InverseTest.Transpose
+[       OK ] InverseTest.Transpose (0 ms)
+[ RUN      ] InverseTest.Determinant
+[       OK ] InverseTest.Determinant (0 ms)
+[ RUN      ] InverseTest.InvalidDimensionsException
+[       OK ] InverseTest.InvalidDimensionsException (0 ms)
+[ RUN      ] InverseTest.SingularMatrixException
+[       OK ] InverseTest.SingularMatrixException (0 ms)
+[----------] 7 tests from InverseTest (0 ms total)
+
+[----------] 7 tests from DeterminantTest
+[ RUN      ] DeterminantTest.Identity
+[       OK ] DeterminantTest.Identity (0 ms)
+[ RUN      ] DeterminantTest.RowExchange
+[       OK ] DeterminantTest.RowExchange (0 ms)
+[ RUN      ] DeterminantTest.Linearity
+[       OK ] DeterminantTest.Linearity (0 ms)
+[ RUN      ] DeterminantTest.EqualRows
+[       OK ] DeterminantTest.EqualRows (0 ms)
+[ RUN      ] DeterminantTest.Transpose
+[       OK ] DeterminantTest.Transpose (0 ms)
+[ RUN      ] DeterminantTest.SingularMatrix
+[       OK ] DeterminantTest.SingularMatrix (0 ms)
+[ RUN      ] DeterminantTest.InvalidDimensionsException
+[       OK ] DeterminantTest.InvalidDimensionsException (0 ms)
+[----------] 7 tests from DeterminantTest (0 ms total)
+
+[----------] 4 tests from TransposeTest
+[ RUN      ] TransposeTest.Add
+[       OK ] TransposeTest.Add (0 ms)
+[ RUN      ] TransposeTest.Involution
+[       OK ] TransposeTest.Involution (0 ms)
+[ RUN      ] TransposeTest.Multiply
+[       OK ] TransposeTest.Multiply (0 ms)
+[ RUN      ] TransposeTest.Scalar
+[       OK ] TransposeTest.Scalar (0 ms)
+[----------] 4 tests from TransposeTest (0 ms total)
+
+[----------] 4 tests from MultiplyTest
+[ RUN      ] MultiplyTest.Associativity
+[       OK ] MultiplyTest.Associativity (0 ms)
+[ RUN      ] MultiplyTest.Distributivity
+[       OK ] MultiplyTest.Distributivity (0 ms)
+[ RUN      ] MultiplyTest.NonCommutativity
+[       OK ] MultiplyTest.NonCommutativity (0 ms)
+[ RUN      ] MultiplyTest.InvalidDimensionsException
+[       OK ] MultiplyTest.InvalidDimensionsException (0 ms)
+[----------] 4 tests from MultiplyTest (0 ms total)
+
+[----------] 2 tests from ColumnTest
+[ RUN      ] ColumnTest.Column
+[       OK ] ColumnTest.Column (0 ms)
+[ RUN      ] ColumnTest.InvalidDimensionsException
+[       OK ] ColumnTest.InvalidDimensionsException (0 ms)
+[----------] 2 tests from ColumnTest (0 ms total)
+
+[----------] 2 tests from RowTest
+[ RUN      ] RowTest.Row
+[       OK ] RowTest.Row (0 ms)
+[ RUN      ] RowTest.InvalidDimensionsException
+[       OK ] RowTest.InvalidDimensionsException (0 ms)
+[----------] 2 tests from RowTest (0 ms total)
+
+[----------] 2 tests from IdentityTest
+[ RUN      ] IdentityTest.Identity
+[       OK ] IdentityTest.Identity (0 ms)
+[ RUN      ] IdentityTest.InvalidDimensionsException
+[       OK ] IdentityTest.InvalidDimensionsException (0 ms)
+[----------] 2 tests from IdentityTest (0 ms total)
+
+[----------] 2 tests from BuildTest
+[ RUN      ] BuildTest.Build
+[       OK ] BuildTest.Build (0 ms)
+[ RUN      ] BuildTest.InvalidDimensionsException
+[       OK ] BuildTest.InvalidDimensionsException (0 ms)
+[----------] 2 tests from BuildTest (0 ms total)
+
+[----------] 5 tests from SubtractTest
+[ RUN      ] SubtractTest.Associativity
+[       OK ] SubtractTest.Associativity (0 ms)
+[ RUN      ] SubtractTest.Commutativity
+[       OK ] SubtractTest.Commutativity (0 ms)
+[ RUN      ] SubtractTest.IdentityElement
+[       OK ] SubtractTest.IdentityElement (0 ms)
+[ RUN      ] SubtractTest.InverseElement
+[       OK ] SubtractTest.InverseElement (0 ms)
+[ RUN      ] SubtractTest.InvalidDimensionsException
+[       OK ] SubtractTest.InvalidDimensionsException (0 ms)
+[----------] 5 tests from SubtractTest (0 ms total)
+
+[----------] 5 tests from ScalarTest
+[ RUN      ] ScalarTest.Associativity
+[       OK ] ScalarTest.Associativity (0 ms)
+[ RUN      ] ScalarTest.Distributivity
+[       OK ] ScalarTest.Distributivity (0 ms)
+[ RUN      ] ScalarTest.IdentityElement
+[       OK ] ScalarTest.IdentityElement (0 ms)
+[ RUN      ] ScalarTest.InverseElement
+[       OK ] ScalarTest.InverseElement (0 ms)
+[ RUN      ] ScalarTest.AbsorbingElement
+[       OK ] ScalarTest.AbsorbingElement (0 ms)
+[----------] 5 tests from ScalarTest (0 ms total)
+
+[----------] 5 tests from AddTest
+[ RUN      ] AddTest.Associativity
+[       OK ] AddTest.Associativity (0 ms)
+[ RUN      ] AddTest.Commutativity
+[       OK ] AddTest.Commutativity (0 ms)
+[ RUN      ] AddTest.IdentityElement
+[       OK ] AddTest.IdentityElement (0 ms)
+[ RUN      ] AddTest.InverseElement
+[       OK ] AddTest.InverseElement (0 ms)
+[ RUN      ] AddTest.InvalidDimensionsException
+[       OK ] AddTest.InvalidDimensionsException (0 ms)
+[----------] 5 tests from AddTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 45 tests from 11 test suites ran. (1 ms total)
+[  PASSED  ] 45 tests.
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"LinearAlgebraTests" end time: Jan 26 22:44 Central Standard Time
+"LinearAlgebraTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jan 26 22:44 Central Standard Time
